@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<form action="/test" method="post">
+    <div>
+        <h1>Unified Modeling Language Theory Test</h1>
+        <table>
+            <tbody>
+            <tr>
+                <td>Test Subjects:</td>
+                <td>Unified Modeling Language</td>
+                <td>Time:</td>
+                <td>100 minutes</td>
+                <td>Score:</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>Class:</td>
+                <td>
+                    <label for="Class"></label>
+                    <select id="Class" style="width: 140px">
+                        <option value="Class1">Class1</option>
+                        <option value="Class2">Class2</option>
+                        <option value="Class3">Class3</option>
+                    </select>
+                </td>
+                <td>Student ID:</td>
+                <td>
+                    <label for="StudentId"></label>
+                    <input id="StudentId" type="text" value="001">
+                </td>
+                <td>Name:</td>
+                <td>
+                    <label for="Name"></label>
+                    <input id="Name" type="text" value="Darcy">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <h1>1、Fill in the blanks(5 points per space, 20 points total)</h1>
+        <label for="fullNameOfUML">1. The full name of UML in Chinese is:</label>
+        <input id="fullNameOfUML" value="Unified Modeling Language" type="text"><br>
+        <label for="prominentFeature">2. The most prominent feature of the object is:
+            <input name="prominentFeature[value][1]" value="Encapsulation" type="text">
+            <input name="prominentFeature[value][2]" value="Inheritance" type="text">
+            <input name="prominentFeature[value][3]" value="Polymorphism" type="text">
+        </label>
+    </div>
+    <div>
+        <h1>2、Single choice question(10 points per space, 20 points total)</h1>
+        <label for="2_1">1. The relationship between UML and software engineering is:<br>
+            <input type="radio" name="2_1" value="A">(A) UML is software engineering<br>
+            <input type="radio" name="2_1" value="B" checked>(B) UML participates in several stages of the software development process in software engineering<br>
+            <input type="radio" name="2_1" value="C">(C) UML has nothing to do with software engineering<br>
+            <input type="radio" name="2_1" value="D">(D) UML is part of software engineering<br>
+        </label>
+        <label for="2_2">2. Java language support:<br>
+            <input type="radio" name="2_2" value="A" checked>(A) Single inheritance<br>
+            <input type="radio" name="2_2" value="B">(B) Multiple inheritance<br>
+            <input type="radio" name="2_2" value="C">(C) Single inheritance and multiple inheritance support<br>
+            <input type="radio" name="2_2" value="D">(D) Single inheritance and multiple inheritance are not supported<br>
+        </label>
+    </div>
+    <div>
+        <h1>3、Multiple choice(10 points per space, 20 points total)</h1>
+        <label for="3_1">1. The granularity of the use case is divided into following three:<br>
+            <input type="checkbox" name="3_1" value="A" checked>(A) Overview level<br>
+            <input type="checkbox" name="3_1" value="B">(B) Demand level<br>
+            <input type="checkbox" name="3_1" value="C" checked>(C) User target level<br>
+            <input type="checkbox" name="3_1" value="D" checked>(D) Sub-function level<br>
+        </label>
+        <label for="3_2">2. The granularity of the use case is divided into following three:<br>
+            <input type="checkbox" name="3_2" value="A" checked>(A) Name<br>
+            <input type="checkbox" name="3_2" value="B" checked>(B) Attribute<br>
+            <input type="checkbox" name="3_2" value="C" checked>(C) Operation<br>
+            <input type="checkbox" name="3_2" value="D">(D) Function<br>
+        </label>
+    </div>
+    <div>
+        <h1>4、True or False(10 points per space, 20 points total)</h1>
+        <label for="4_1">1. Use case diagrams are only used to communicate and communicate with customers to determine demand.
+            <input type="radio" name="4_1" value="T">✅
+            <input type="radio" name="4_1" value="F" checked>❌<br>
+        </label>
+        <label for="4_2">2. In the state diagram, the termination state allows any number of multiples in a state diagram.
+            <input type="radio" name="4_2" value="T" checked>✅
+            <input type="radio" name="4_2" value="F" >❌<br>
+        </label>
+    </div>
+    <div>
+        <h1>5、Short answer question(20 points per space, 20 points total)</h1>
+        <label for="5_1">1. Briefly describe what the model is and how it behaves?<br>
+            <textarea name="5_1" cols="100" rows="20">A model is a simplification and abstraction of the real world. A model is an expression of the system, process, thing or concept of research. Can be a physical entity; can be a certain graphic; or a mathematical expression.</textarea>
+        </label>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <title>Siwo Credit Card Application Form</title>
+    <meta http-equiv="Content-Type" charset="UTF-8">
+    <style type="text/css">
+        .item {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+
+        input {
+            margin-left: 10px;
+        }
+
+        .main-form {
+            margin-left: 40px;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+<div class="main-form">
+    <form>
+        <h1>Siwo Credit Card Application Form</h1>
+        <hr>
+        <h2>Customer Information</h2>
+
+        <div class="item">
+            <label for="title">Title<br>
+                <input type="radio" name="title">Mr.
+                <input type="radio" name="title">Mrs.
+                <input type="radio" name="title">Miss.
+            </label>
+        </div>
+
+        <div class="item">
+            <label>Full Name<br>
+                <input type="text" name="firstName" placeholder="first name">
+                <input type="text" name="lastName" placeholder="last name">
+            </label>
+        </div>
+
+        <div class="item">
+            <label for="gender">Gender<br>
+                <input type="radio" name="gender">Male
+                <input type="radio" name="gender">Female
+            </label>
+        </div>
+
+        <div class="item">
+            <label for="birthDate">Date of Birth<br>
+                <input type="date" id="birthDate" name="birthDate">
+            </label>
+        </div>
+
+        <div class="item">
+            <label for="status">Marital Status<br>
+                <input type="radio" name="status" value="Single">Single
+                <input type="radio" name="status" value="Married">Married
+                <input type="radio" name="status" value="Divorced">Divorced
+                <input type="radio" name="status" value="Window">Window(er)
+            </label>
+        </div>
+
+        <div class="item">
+            <label for="email">E-mail:
+                <input type="text" name="email" placeholder="example@example.com">
+            </label>
+        </div>
+        <div class="item">
+            <label>Phone Number:
+                <input type="text" name="phone" pattern="[0-9]">
+            </label>
+        </div>
+        <div class="item"><br>
+            <label for="address">Permanent address:
+                <input type="text" name="address">
+            </label>
+        </div>
+        <div class="item"><br>
+            <label for="income">Monthly income（¥）:</label>
+            <input type="text" id="income" name="income" pattern="[0-9]"><br>
+            <label for="certificate">Upload certificate：</label>
+            <input type="file" name="certificate">
+        </div>
+        <hr>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
