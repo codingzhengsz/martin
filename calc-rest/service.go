@@ -18,7 +18,7 @@ type Service interface {
 	Divide(a, b int) (int, error)
 }
 
-//ArithmeticService implement Service interface
+// ArithmeticService implement Service interface
 type ArithmeticService struct {
 }
 
@@ -44,3 +44,5 @@ func (s ArithmeticService) Divide(a, b int) (int, error) {
 	}
 	return a / b, nil
 }
+
+type ServiceMiddleware func(Service) Service

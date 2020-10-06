@@ -22,7 +22,6 @@ func main() {
 	svc = ArithmeticService{}
 	svc = NewLoggingService(log.With(logger, "component", "calc"), svc)
 
-
 	httpLogger := log.With(logger, "component", "http")
 
 	mux := http.NewServeMux()

@@ -16,12 +16,12 @@ func main() {
 	{
 		logger = log.NewLogfmtLogger(log.NewSyncWriter(os.Stderr))
 		logger = log.With(logger, "ts", log.DefaultTimestampUTC)
+		logger = log.With(logger, "caller", log.DefaultCaller)
 	}
 
 	var svc Service
 	svc = ArithmeticService{}
-	svc = NewLoggingService(log.With(logger, "component", "calc"), svc)
-
+	svc = LoggingMiddleware(logger)(svc)
 
 	httpLogger := log.With(logger, "component", "http")
 

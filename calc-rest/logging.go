@@ -5,16 +5,22 @@ import (
 	"time"
 )
 
-type loggingService struct {
+type loggingMiddleware struct {
 	logger log.Logger
 	Service
 }
 
-func NewLoggingService(logger log.Logger, s Service) Service {
-	return &loggingService{logger, s}
+func LoggingMiddleware(logger log.Logger) ServiceMiddleware {
+	return func(next Service) Service {
+		return &loggingMiddleware{logger, next}
+	}
 }
 
-func (s *loggingService) Add(a, b int) (result int) {
+//func NewLoggingService(logger log.Logger, s Service) Service {
+//	return &loggingMiddleware{logger, s}
+//}
+
+func (s *loggingMiddleware) Add(a, b int) (result int) {
 	defer func(begin time.Time) {
 		s.logger.Log(
 			"method", "Add",
@@ -27,7 +33,7 @@ func (s *loggingService) Add(a, b int) (result int) {
 	return s.Service.Add(a, b)
 }
 
-func (s *loggingService) Subtract(a, b int) (result int) {
+func (s *loggingMiddleware) Subtract(a, b int) (result int) {
 	defer func(begin time.Time) {
 		s.logger.Log(
 			"method", "Subtract",
@@ -40,7 +46,7 @@ func (s *loggingService) Subtract(a, b int) (result int) {
 	return s.Service.Subtract(a, b)
 }
 
-func (s *loggingService) Multiply(a, b int) (result int) {
+func (s *loggingMiddleware) Multiply(a, b int) (result int) {
 	defer func(begin time.Time) {
 		s.logger.Log(
 			"method", "Multiply",
@@ -53,7 +59,7 @@ func (s *loggingService) Multiply(a, b int) (result int) {
 	return s.Service.Multiply(a, b)
 }
 
-func (s *loggingService) Divide(a, b int) (result int, err error) {
+func (s *loggingMiddleware) Divide(a, b int) (result int, err error) {
 	defer func(begin time.Time) {
 		s.logger.Log(
 			"method", "Divide",
