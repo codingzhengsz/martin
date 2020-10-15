@@ -9,7 +9,7 @@ import (
 
 var ErrLimitExceed = errors.New("Rate limit exceed! ")
 
-// NewTokenBucketLimiterWithBuildIn 使用x/time/rate创建限流中间件
+// NewTokenBucketLimiterWithBuildIn create rate limiter
 func NewTokenBucketLimiterWithBuildIn(bkt *rate.Limiter) endpoint.Middleware {
 	return func(next endpoint.Endpoint) endpoint.Endpoint {
 		return func(ctx context.Context, request interface{}) (response interface{}, err error) {

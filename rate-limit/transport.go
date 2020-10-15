@@ -4,9 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	kitlog "github.com/go-kit/kit/log"
+	kitLog "github.com/go-kit/kit/log"
 	"github.com/go-kit/kit/transport"
-	kithttp "github.com/go-kit/kit/transport/http"
+	kitHttp "github.com/go-kit/kit/transport/http"
 	"github.com/gorilla/mux"
 	"golang.org/x/time/rate"
 	"net/http"
@@ -19,19 +19,19 @@ var (
 )
 
 // MakeHttpHandler make http handler use mux
-func MakeHttpHandler(cs Service, logger kitlog.Logger) http.Handler {
+func MakeHttpHandler(cs Service, logger kitLog.Logger) http.Handler {
 	r := mux.NewRouter()
 
-	options := []kithttp.ServerOption{
-		kithttp.ServerErrorHandler(transport.NewLogErrorHandler(logger)),
-		kithttp.ServerErrorEncoder(kithttp.DefaultErrorEncoder),
+	options := []kitHttp.ServerOption{
+		kitHttp.ServerErrorHandler(transport.NewLogErrorHandler(logger)),
+		kitHttp.ServerErrorEncoder(kitHttp.DefaultErrorEncoder),
 	}
 
 	arithmeticEndpoint := MakeArithmeticEndpoint(cs)
 	rateLimiter := rate.NewLimiter(rate.Every(time.Second + 1), 3)
 	arithmeticEndpoint = NewTokenBucketLimiterWithBuildIn(rateLimiter)(arithmeticEndpoint)
 
-	r.Path("/calculate/{type}/{a}/{b}").Handler(kithttp.NewServer(
+	r.Path("/calculate/{type}/{a}/{b}").Handler(kitHttp.NewServer(
 		arithmeticEndpoint,
 		decodeArithmeticRequest,
 		encodeArithmeticResponse,
