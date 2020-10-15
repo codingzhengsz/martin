@@ -1,3 +1,5 @@
 *.sum
 
 .idea
+
+.DS_Store
